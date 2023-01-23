@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Frist Django Project</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'static/style.css' %}">
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+    <style>
+        .from-body {
+            text-align: center;
+            box-shadow: 2px 3px 25px;
+            height: 250px;
+            width: 300px;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+            margin-left: 500px;
+            margin-top: 50px;
+            background: rgba(250, 174, 174, 0.239);
+
+        }
+    </style>
+</head>
+
+<body>
+    {% csrf_token %}
+
+    <div class="from-body">
+        <form action="submit-from" method="post">
+            <label for="fooditem">Today Fooditem <br>(like Beef,fish,Egg,Chicken)</label>:</label><br>
+            <input type="text" id="fooditem" name="fooditem"><br>
+            <label for="fooditem">Today Market Cost</label>:</label><br>
+            <input type="text" id="marketcost" name="marketcost"><br>
+            <label for="members">Today Members:</label><br>
+            <input type="number" id="member" name="member"><br><br>
+
+
+            <input type="submit" value="Submit" name="submitbtn">
+        </form>
+    </div>
+
+</body>
+
+</html>
