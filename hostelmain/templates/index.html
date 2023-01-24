@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'static/style.css' %}">
     <!-- <link rel="stylesheet" href="style1.css"> -->
     <style>
-        .from-body {
+        .form-body {
             text-align: center;
             box-shadow: 2px 3px 25px;
             height: 250px;
@@ -30,8 +30,8 @@
 <body>
     {% csrf_token %}
 
-    <div class="from-body">
-        <form action="submit-from" method="post">
+    <div class="form-body">
+        <form action="submit-form" method="post">
             <label for="fooditem">Today Fooditem <br>(like Beef,fish,Egg,Chicken)</label>:</label><br>
             <input type="text" id="fooditem" name="fooditem"><br>
             <label for="fooditem">Today Market Cost</label>:</label><br>

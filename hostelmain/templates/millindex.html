@@ -1,5 +1,7 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,79 +9,66 @@
     <title>Document</title>
 </head>
 <style>
-    .mill-amount{
+    .person {
         display: flex;
         flex-direction: row;
         align-items: center;
-        
+
     }
-    h4{
+
+    .person,
+    h2 {
         margin: 5px;
+        font-size: 20px;
     }
-    .main-form{
-        width: 300px;
-        align-content: center;
-        border: 2px solid black;
-    }
-    .mainfrom-component{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-    
 </style>
+
 <body>
-    <section class="mainfrom-component">
-        <div class="main-form">
-            <form>
-                <div class="mill-amount">
-                    <h4>Shakil</h4> 
-                    <div>
-                        <label for="input">
-                            <input type="radio" name="shakil" value="1">1
-                            <input type="radio" name="shakil" value="2">2
-                            <input type="radio" name="shakil" value="3">3
-                        </label>
-                    </div>
-                </div>     
-            </form>
-            <form>
-                <div class="mill-amount">
-                    <h4>Shakil-Guest</h4> 
-                    <div>
-                        <label for="input">
-                            <input type="radio" name="shakil" value="1">1
-                            <input type="radio" name="shakil" value="2">2
-                            <input type="radio" name="shakil" value="3">3
-                        </label>
-                    </div>
-                </div>     
-            </form>
-            <form>
-                <div class="mill-amount">
-                    <h4>Sadik</h4> 
-                    <div>
-                        <label for="input">
-                            <input type="radio" name="sadik" value="1">1
-                            <input type="radio" name="sadik" value="2">2
-                            <input type="radio" name="sadik" value="3">3
-                        </label>
-                    </div>
-                </div>     
-            </form>
-            <form>
-                <div class="mill-amount">
-                    <h4>Sadik-Guest</h4> 
-                    <div>
-                        <label for="input">
-                            <input type="radio" name="sadik" value="1">1
-                            <input type="radio" name="sadik" value="2">2
-                            <input type="radio" name="sadik" value="3">3
-                        </label>
-                    </div>
-                </div>     
-            </form>
-        </div>
+    {% csrf_token %}
+    <section class="mainform-component">
+
+        <form action="submit.django" method="post">
+            <label class="person">
+                <div class="name">
+                    <h2>Shakil</h2>
+                </div>
+                <form class="button">
+                    <input type="radio" name="number1" value="1"> 1
+                    <input type="radio" name="number1" value="2"> 2
+                    <input type="radio" name="number1" value="3"> 3
+                </form>
+            </label>
+            <label class="person">
+                <div class="name">
+                    <h2>Sadik</h2>
+                </div>
+                <form class="button">
+                    <input type="radio" name="number1" value="1"> 1
+                    <input type="radio" name="number1" value="2"> 2
+                    <input type="radio" name="number1" value="3"> 3
+                </form>
+            </label>
+            <label class="person">
+                <div class="name">
+                    <h2>Babu</h2>
+                </div>
+                <form class="button">
+                    <input type="radio" name="number1" value="1"> 1
+                    <input type="radio" name="number1" value="2"> 2
+                    <input type="radio" name="number1" value="3"> 3
+                </form>
+            </label>
+
+
+            <input type="submit" value="Submit">
+        </form>
+
+
+
+
+
+
     </section>
 </body>
+
 </html>

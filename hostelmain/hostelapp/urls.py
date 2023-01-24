@@ -9,5 +9,6 @@ from .import views
 app_name = "hostelapp"
 urlpatterns = [
     path('', views.hostelapp),
-    path('submit-from', views.aftersubmit)
-]  
+    path('submit-form', views.aftersubmit),
+    path("mill", views.millsubmit),
+]

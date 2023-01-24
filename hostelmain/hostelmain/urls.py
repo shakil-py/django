@@ -22,5 +22,5 @@ from hostelapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('hostelapp.urls')),
-    
+
 ]

@@ -35,3 +35,8 @@ def aftersubmit(request):
     if request.method == "post":
         return render(request, "resultindex.html", millrate)
     return render(request, "resultindex.html", millrate)
+
+def millsubmit(request):
+    return render(request, "millindex.html")
+
+    
