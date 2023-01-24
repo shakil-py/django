@@ -1,3 +1,6 @@
+from .models import MyModel
+from django.shortcuts import render, redirect
+from operator import getitem
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from .models import Information
@@ -22,7 +25,7 @@ def aftersubmit(request):
         millrate = int(marketcost)/(int(member)*6)
         return millrate
 
-    millrate=cal()
+    millrate = cal()
 
     def masage():
         if millrate > 14:
@@ -30,13 +33,43 @@ def aftersubmit(request):
         else:
             return "Great job Maneger Continue"
 
-
-    millrate = {"millrate":millrate, "masage": masage()}
+    millrate = {"millrate": millrate, "masage": masage()}
     if request.method == "post":
         return render(request, "resultindex.html", millrate)
     return render(request, "resultindex.html", millrate)
 
-def millsubmit(request):
-    return render(request, "millindex.html")
 
-    
+# def millsubmit(request):
+#     # name = request.POST["Shakil"]
+#     # mealvalue = request.POST["value"]
+#     # record = Information(name=name, mealvalue=mealvalue)
+#     # record.save()
+
+#     shakil_choice = request.POST.get("Shakil")
+#     sadik_choice = request.POST.get("Sadik")
+#     babu_choice = request.POST.get("Babu")
+#     # Do something with the selected values
+#     HostelappMillamaount.objects.create(shakil=shakil_choice, sadik=sadik_choice, babu=babu_choice)
+
+#     if request.method == "post":
+#         return render(request, "millindex.html")
+#     return render(request, "millindex.html")
+
+
+def my_view(request):
+    if request.method == "POST":
+        shakil_choice = request.POST.get("Shakil")
+        sadik_choice = request.POST.get("Sadik")
+        babu_choice = request.POST.get("Babu")
+        if shakil_choice and sadik_choice and babu_choice:
+            # Create a new instance of the model
+            my_model_instance = MyModel()
+            my_model_instance.shakil = shakil_choice
+            my_model_instance.sadik = sadik_choice
+            my_model_instance.babu = babu_choice
+            # Save the instance to the database
+            my_model_instance.save()
+            return redirect('success_view')
+        else:
+            return redirect('error_view')
+    return render(request, 'millindex.html')
