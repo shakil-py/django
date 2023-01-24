@@ -9,17 +9,26 @@
     <title>Document</title>
 </head>
 <style>
-    .person {
-        display: flex;
-        flex-direction: row;
+    .mainform-component{
+        justify-content: center;
         align-items: center;
+    }
+    form {
+        box-shadow: 5px 10px 20px gray;
+        width: 300px;
 
     }
 
-    .person,
-    h2 {
-        margin: 5px;
-        font-size: 20px;
+    .person {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .formcomponent {
+        justify-content: center;
     }
 </style>
 
@@ -28,46 +37,34 @@
     <section class="mainform-component">
 
         <form action="submit.django" method="post">
-            <label class="person">
-                <div class="name">
+            <div class="formcomponent">
+                <div class="person">
                     <h2>Shakil</h2>
+                    <input type="radio" name="Shakil" value="1"> 1
+                    <input type="radio" name="Shakil" value="2"> 2
+                    <input type="radio" name="Shakil" value="3"> 3
                 </div>
-                <form class="button">
-                    <input type="radio" name="number1" value="1"> 1
-                    <input type="radio" name="number1" value="2"> 2
-                    <input type="radio" name="number1" value="3"> 3
-                </form>
-            </label>
-            <label class="person">
-                <div class="name">
+                <div class="person">
                     <h2>Sadik</h2>
+                    <input type="radio" name="Sadik" value="1"> 1
+                    <input type="radio" name="Sadik" value="2"> 2
+                    <input type="radio" name="Sadik" value="3"> 3
                 </div>
-                <form class="button">
-                    <input type="radio" name="number1" value="1"> 1
-                    <input type="radio" name="number1" value="2"> 2
-                    <input type="radio" name="number1" value="3"> 3
-                </form>
-            </label>
-            <label class="person">
-                <div class="name">
+
+                <div class="person">
                     <h2>Babu</h2>
+                    <input type="radio" name="Babu" value="1"> 1
+                    <input type="radio" name="Babu" value="2"> 2
+                    <input type="radio" name="Babu" value="3"> 3<br>
+
                 </div>
-                <form class="button">
-                    <input type="radio" name="number1" value="1"> 1
-                    <input type="radio" name="number1" value="2"> 2
-                    <input type="radio" name="number1" value="3"> 3
-                </form>
-            </label>
+                <div class="person">
+                    <input type="submit" value="Submit">
+                </div>
 
+            </div>
 
-            <input type="submit" value="Submit">
         </form>
-
-
-
-
-
-
     </section>
 </body>
 
