@@ -1,4 +1,4 @@
-from .models import MyModel
+from .models import meal
 from django.shortcuts import render, redirect
 from operator import getitem
 from django.shortcuts import render
@@ -56,20 +56,28 @@ def aftersubmit(request):
 #     return render(request, "millindex.html")
 
 
-def my_view(request):
-    if request.method == "POST":
-        shakil_choice = request.POST.get("Shakil")
-        sadik_choice = request.POST.get("Sadik")
-        babu_choice = request.POST.get("Babu")
-        if shakil_choice and sadik_choice and babu_choice:
-            # Create a new instance of the model
-            my_model_instance = MyModel()
-            my_model_instance.shakil = shakil_choice
-            my_model_instance.sadik = sadik_choice
-            my_model_instance.babu = babu_choice
-            # Save the instance to the database
-            my_model_instance.save()
-            return redirect('success_view')
-        else:
-            return redirect('error_view')
-    return render(request, 'millindex.html')
+# def my_view(request):
+#     if request.method == "POST":
+#         shakil_choice = request.POST.get("Shakil")
+#         sadik_choice = request.POST.get("Sadik")
+#         babu_choice = request.POST.get("Babu")
+#         if shakil_choice and sadik_choice and babu_choice:
+#             # Create a new instance of the model
+#             my_model_instance = MyModel()
+#             my_model_instance.shakil = shakil_choice
+#             my_model_instance.sadik = sadik_choice
+#             my_model_instance.babu = babu_choice
+#             # Save the instance to the database
+#             my_model_instance.save()
+#             return redirect('success_view')
+#         else:
+#             return redirect('error_view')
+#     return render(request, 'millindex.html')
+def mmealview(request):
+    if request.method == "post":
+        name = request.POST.get("shakil")
+        person_1 = request.POST.get(redio_btn="redio-btn")
+        
+        record = meal(person_1=person_1, name=name)
+        record.save()
+    return render(request, "millindex.html")

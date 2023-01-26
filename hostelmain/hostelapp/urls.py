@@ -10,5 +10,5 @@ app_name = "hostelapp"
 urlpatterns = [
     path('', views.hostelapp),
     path('submit-form', views.aftersubmit),
-    path("mill", views.my_view),
+    path("mill", views.mmealview),
 ]
