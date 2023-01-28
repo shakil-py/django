@@ -11,4 +11,5 @@ urlpatterns = [
     path('', views.hostelapp),
     path('submit-form', views.aftersubmit),
     path("mill", views.mmealview),
+    path("submit.django", views.mmealview),
 ]

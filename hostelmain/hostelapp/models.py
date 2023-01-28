@@ -44,12 +44,16 @@ class Information(models.Model):
 #     choice_3 = models.IntegerField(choices=OPTIONS_3)
 
 class meal(models.Model):
-    name=models.CharField(max_length=50,default=False)
-    meal1, meal2, meal3 = "meal_1", "meal_2", "meal_3"
-    person_1 = [(meal1, "meal_1"), (meal2, "meal_2"), (meal3, "meal_3")]
+    # name=models.CharField(max_length=50,default=False)
+    # meal1, meal2, meal3 = "1", "2", "3"
+    # person_1 = [(meal1, "1"), (meal2, "2"), (meal3, "3")]
+    
+    person_1_meal = models.IntegerField(person_1, default=0)
+    date = models.DateField(auto_now=True)
+
     # person_2 = ["meal_1", "meal_2", "meal_3"]
     # person_3 = ["meal_1", "meal_2", "meal_3"]
-    
-    parson_1 = models.IntegerField(choices=person_1)
+
+    # parson_1 = models.IntegerField(choices=person_1)
     # parson_1=models.IntegerField(choices=person_2)
     # parson_1=models.IntegerField(choices=person_3)

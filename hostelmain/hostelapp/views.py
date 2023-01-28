@@ -73,11 +73,24 @@ def aftersubmit(request):
 #         else:
 #             return redirect('error_view')
 #     return render(request, 'millindex.html')
+@csrf_exempt
 def mmealview(request):
-    if request.method == "post":
-        name = request.POST.get("shakil")
-        person_1 = request.POST.get(redio_btn="redio-btn")
-        
-        record = meal(person_1=person_1, name=name)
-        record.save()
-    return render(request, "millindex.html")
+    # person_1 = request.post.get(redio_btn="redio-btn")
+
+    # record = meal(person_1=person_1,)
+    # record.save()
+    # if request.method == "post":
+    #     name = request.POST.get("")
+
+    #     return redirect("sucess")
+    if request.method == 'POST':
+        print("ok")
+        radio_choice = request.POST.get(
+            'radio_button')
+
+        # Save the radio choice to the database
+        model_instance = meal(person_1=radio_choice)
+        model_instance.save()
+        return render(request, 'millindex.html')
+    else:
+        return render(request, 'millindex.html')
