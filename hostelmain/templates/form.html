@@ -6,17 +6,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .form {
+            display: flex;
+            padding: 15px;
+
+        }
+    </style>
 </head>
 
 <body>
     <form method="post">
         {% csrf_token %}
-        <div>{{ form.as_p }}</div>
+        <div class="form">{{ form.as_p }}</div>
         <input type="submit" value="Submit">
     </form>
 
-    {% if choice %}
-    <p>You selected: {{ choice }}</p>
+    {% if sadik %}
+    <p>Shakil selected: {{ shakil }}</p>
+    <p>Sadik selected: {{ sadik }}</p>
+    <p>Babu selected: {{ babu }}</p>
+
     {% endif %}
 </body>
 

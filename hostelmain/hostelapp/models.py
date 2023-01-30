@@ -7,3 +7,10 @@ class Information(models.Model):
     marketcost = models.IntegerField()
     member = models.IntegerField()
     date = models.DateField(auto_now=True)
+
+
+class meal(models.Model):
+    person_1=models.IntegerField(default=0)
+    person_2=models.IntegerField(default=0)
+    person_3=models.IntegerField(default=0)
+    date=models.DateField(auto_now=True)

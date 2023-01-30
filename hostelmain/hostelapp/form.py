@@ -2,10 +2,11 @@ from django import forms
 
 
 class RadioButtonForm(forms.Form):
-    SHAKIL = [
-        ('option_1', 'Option 1'),
-        ('option_2', 'Option 2'),
-        ('option_3', 'Option 3'),
+    OPTIONS = [
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
     ]
-    choice = forms.ChoiceField(choices=SHAKIL, widget=forms.RadioSelect)
-    
+    shakil = forms.ChoiceField(choices=OPTIONS, widget=forms.RadioSelect)
+    sadik = forms.ChoiceField(choices=OPTIONS, widget=forms.RadioSelect)
+    babu = forms.ChoiceField(choices=OPTIONS, widget=forms.RadioSelect)
