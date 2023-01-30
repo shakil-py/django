@@ -40,7 +40,7 @@ def aftersubmit(request):
 
 
 @csrf_exempt
-def mmealview(request):
+def mealview(request):
     shakil = request.POST["shakil"]
     sadik = request.POST["sadik"]
     babu = request.POST["babu"]
