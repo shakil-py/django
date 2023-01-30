@@ -1,5 +1,5 @@
-from .models import meal
-from django.shortcuts import render, redirect
+from .form import RadioButtonForm
+from django.shortcuts import render
 from operator import getitem
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
@@ -75,22 +75,30 @@ def aftersubmit(request):
 #     return render(request, 'millindex.html')
 @csrf_exempt
 def mmealview(request):
-    # person_1 = request.post.get(redio_btn="redio-btn")
+    # # person_1 = request.post.get(redio_btn="redio-btn")
 
-    # record = meal(person_1=person_1,)
-    # record.save()
-    # if request.method == "post":
-    #     name = request.POST.get("")
+    # # record = meal(person_1=person_1,)
+    # # record.save()
+    # # if request.method == "post":
+    # #     name = request.POST.get("")
 
-    #     return redirect("sucess")
+    # #     return redirect("sucess")
+    # if request.method == 'POST':
+    #     print("ok")
+    #     radio_choice = request.POST.get(
+    #         'radio_button')
+
+    #     # Save the radio choice to the database
+    #     model_instance = meal(person_1=radio_choice)
+    #     model_instance.save()
+    #     return render(request, 'millindex.html')
+    # else:
+    #     return render(request, 'millindex.html')
     if request.method == 'POST':
-        print("ok")
-        radio_choice = request.POST.get(
-            'radio_button')
-
-        # Save the radio choice to the database
-        model_instance = meal(person_1=radio_choice)
-        model_instance.save()
-        return render(request, 'millindex.html')
+        form = RadioButtonForm(request.POST)
+        if form.is_valid():
+            choice = form.cleaned_data['choice']
+            return render(request, 'form.html', {'form': form, 'choice': choice})
     else:
-        return render(request, 'millindex.html')
+        form = RadioButtonForm()
+    return render(request, 'form.html', {'form': form})

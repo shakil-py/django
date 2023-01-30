@@ -1,18 +1,6 @@
 from django.db import models
 
-# Create your models here.
 
-
-# class marketcost(models.Model):
-#     marketcost = models.IntegerField(5)
-
-
-# class item(models.Model):
-#     item = models.CharField(max_length=50, default="None")
-
-
-# class datetime(models.Model):
-#     date = models.DateField(auto_now=True)
 
 class Information(models.Model):
     fooditem = models.CharField(max_length=50)
@@ -20,40 +8,12 @@ class Information(models.Model):
     member = models.IntegerField()
     date = models.DateField(auto_now=True)
 
+from django import forms
 
-# class HostelappMillamaount(models.Model):
-#     name = models.CharField(max_length=50)
-#     meall = models.IntegerField()
-#     date = models.DateField()
-
-#     def __str__(self) -> str:
-#         return self.name
-
-#     class Meta:
-#         managed = False
-#         db_table = 'hostelapp_millamaount'
-
-
-# class MyModel(models.Model):
-#     OPTIONS_1 = [("option1", "Option 1"), ("option2", "Option 2"), ("option3", "Option 3")]
-#     OPTIONS_2 = [("option1", "Option 1"), ("option2", "Option 2"), ("option3", "Option 3")]
-#     OPTIONS_3 = [("option1", "Option 1"), ("option2", "Option 2"), ("option3", "Option 3")]
-#     name=models.CharField(max_length=50,default="name")
-#     choice_1 = models.IntegerField(choices=OPTIONS_3)
-#     choice_2 = models.IntegerField(choices=OPTIONS_3)
-#     choice_3 = models.IntegerField(choices=OPTIONS_3)
-
-class meal(models.Model):
-    # name=models.CharField(max_length=50,default=False)
-    # meal1, meal2, meal3 = "1", "2", "3"
-    # person_1 = [(meal1, "1"), (meal2, "2"), (meal3, "3")]
-    
-    person_1_meal = models.IntegerField(person_1, default=0)
-    date = models.DateField(auto_now=True)
-
-    # person_2 = ["meal_1", "meal_2", "meal_3"]
-    # person_3 = ["meal_1", "meal_2", "meal_3"]
-
-    # parson_1 = models.IntegerField(choices=person_1)
-    # parson_1=models.IntegerField(choices=person_2)
-    # parson_1=models.IntegerField(choices=person_3)
+class RadioButtonForm(forms.Form):
+    CHOICES = [
+        ('option_1', 'Option 1'),
+        ('option_2', 'Option 2'),
+        ('option_3', 'Option 3'),
+    ]
+    choice = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect)
