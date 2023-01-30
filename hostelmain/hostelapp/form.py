@@ -8,3 +8,4 @@ class RadioButtonForm(forms.Form):
         ('option_3', 'Option 3'),
     ]
     choice = forms.ChoiceField(choices=SHAKIL, widget=forms.RadioSelect)
+    
