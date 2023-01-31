@@ -9,7 +9,7 @@ class Information(models.Model):
     date = models.DateField(auto_now=True)
 
 
-class meal(models.Model):
+class Meal(models.Model):
     person_1=models.IntegerField(default=0)
     person_2=models.IntegerField(default=0)
     person_3=models.IntegerField(default=0)
