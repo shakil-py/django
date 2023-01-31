@@ -68,7 +68,7 @@ def mealview(request):
             shakil = form.cleaned_data["shakil"]
             sadik = form.cleaned_data["sadik"]
             babu = form.cleaned_data["babu"]
-            meal = Meal(person_1=shakil, person_2=sadik, person_3=babu)
+            meal = Meal(Shakil=shakil, Sadik=sadik, Babu=babu)
             meal.save()
             return render(request, 'form.html', {'form': form, 'shakil': shakil, 'sadik': sadik, 'babu': babu})
     else:

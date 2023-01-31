@@ -10,7 +10,7 @@ class Information(models.Model):
 
 
 class Meal(models.Model):
-    person_1=models.IntegerField(default=0)
-    person_2=models.IntegerField(default=0)
-    person_3=models.IntegerField(default=0)
+    Shakil=models.IntegerField(default=0)
+    Sadik=models.IntegerField(default=0)
+    Babu=models.IntegerField(default=0)
     date=models.DateField(auto_now=True)
