@@ -3,7 +3,8 @@ from django.shortcuts import render
 from operator import getitem
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from .models import Information, meal
+from hostelapp.models import Information
+from hostelapp.models import meal
 
 
 # Create your views here.
@@ -41,11 +42,9 @@ def aftersubmit(request):
 
 @csrf_exempt
 def mealview(request):
-    shakil = request.POST["shakil"]
-    sadik = request.POST["sadik"]
-    babu = request.POST["babu"]
-    meal = meal(person_1=shakil, person_2=sadik, person_3=babu)
-    meal.save()
+    shakil = request.GET.get("shakil", False)
+    sadik = request.GET.get("sadik", False)
+    babu = request.GET.get("babu", False)
 
     if request.method == 'POST':
         form = RadioButtonForm(request.POST)
@@ -53,7 +52,12 @@ def mealview(request):
             shakil = form.cleaned_data["shakil"]
             sadik = form.cleaned_data["sadik"]
             babu = form.cleaned_data["babu"]
+            meal = meal(person_1=shakil, person_2=sadik, person_3=babu)
+            meal.save()
             return render(request, 'form.html', {'form': form, 'shakil': shakil, 'sadik': sadik, 'babu': babu})
     else:
         form = RadioButtonForm()
+        meal = meal(person_1=shakil, person_2=sadik, person_3=babu)
+        meal.save()
     return render(request, 'form.html', {'form': form})
+
