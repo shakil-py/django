@@ -12,7 +12,8 @@
             padding: 15px;
 
         }
-        p{
+
+        p {
             display: flex;
             flex-direction: row;
         }
@@ -20,6 +21,15 @@
 </head>
 
 <body>
+    <nav>
+        <ul>
+            <a href="http://127.0.0.1:8000/">HOME</a>
+            <a href="http://127.0.0.1:8000/submit-form/">MEAL</a>
+            <a href="http://127.0.0.1:8000/submit-form">PREDECTIONS</a>
+            <a href="http://127.0.0.1:8000/admin">ADMIN</a>
+
+        </ul>
+    </nav>
     <form method="post">
         {% csrf_token %}
         <div class="form">{{ form.as_p }}</div>

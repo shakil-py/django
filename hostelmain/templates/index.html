@@ -28,8 +28,16 @@
 </head>
 
 <body>
-    {% csrf_token %}
+    <nav>
+        <ul>
+            <a href="http://127.0.0.1:8000/">HOME</a>
+            <a href="http://127.0.0.1:8000/submit-form/">MEAL</a>
+            <a href="http://127.0.0.1:8000/submit-form">PREDECTIONS</a>
+            <a href="http://127.0.0.1:8000/admin">ADMIN</a>
 
+        </ul>
+    </nav>
+    {% csrf_token %}
     <div class="form-body">
         <form action="submit-form" method="post">
             <label for="fooditem">Today Fooditem <br>(like Beef,fish,Egg,Chicken)</label>:</label><br>
